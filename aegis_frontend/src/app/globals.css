@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --aegis-bg: #050c1a;
+  --aegis-surface: #0d1b2e;
+  --aegis-card: #112240;
+  --aegis-border: rgba(99, 179, 237, 0.15);
+  --aegis-accent: #38bdf8;
+  --aegis-accent-2: #34d399;
+  --aegis-accent-3: #f472b6;
+  --aegis-text: #e2e8f0;
+  --aegis-muted: #64748b;
+  --aegis-glass: rgba(13, 27, 46, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--aegis-bg);
+  color: var(--aegis-text);
+  font-family: 'Inter', sans-serif;
+}
+
+#__next {
+  height: 100%;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: #0d1b2e !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-tile {
+  filter: brightness(0.7) saturate(0.6) hue-rotate(200deg) !important;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid var(--aegis-border) !important;
+  background: var(--aegis-glass) !important;
+  backdrop-filter: blur(12px) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background: transparent !important;
+  color: var(--aegis-accent) !important;
+  border: none !important;
+  font-size: 18px !important;
+  line-height: 30px !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(5, 12, 26, 0.6) !important;
+  color: var(--aegis-muted) !important;
+  font-size: 10px !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--aegis-card) !important;
+  border: 1px solid var(--aegis-border) !important;
+  border-radius: 12px !important;
+  color: var(--aegis-text) !important;
+  padding: 0 !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--aegis-card) !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--aegis-muted) !important;
+  font-size: 18px !important;
+  right: 8px !important;
+  top: 8px !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 179, 237, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 179, 237, 0.4);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--aegis-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--aegis-border);
+}
+
+.glass-strong {
+  background: rgba(17, 34, 64, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--aegis-border);
+}
+
+/* Typewriter cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: var(--aegis-accent);
+  margin-left: 2px;
+}
+
+/* Pulse ring animation */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(56, 189, 248, 0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Thinking dots */
+@keyframes thinking-dot {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-6px) scale(1.2); opacity: 1; }
+}
+
+/* Neon glow */
+.neon-glow {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3), 0 0 60px rgba(56, 189, 248, 0.1);
+}
+
+.neon-glow-green {
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.3), 0 0 60px rgba(52, 211, 153, 0.1);
+}
+
+/* Map marker custom */
+.aegis-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.aegis-marker:hover {
+  transform: scale(1.2);
+}
+
+.aegis-marker-green { background: #22c55e; border-color: #86efac; box-shadow: 0 0 12px rgba(34,197,94,0.5); }
+.aegis-marker-yellow { background: #f59e0b; border-color: #fcd34d; box-shadow: 0 0 12px rgba(245,158,11,0.5); }
+.aegis-marker-red { background: #ef4444; border-color: #fca5a5; box-shadow: 0 0 12px rgba(239,68,68,0.5); }
+.aegis-marker-blue { background: #3b82f6; border-color: #93c5fd; box-shadow: 0 0 12px rgba(59,130,246,0.5); }
+.aegis-marker-purple { background: #8b5cf6; border-color: #c4b5fd; box-shadow: 0 0 12px rgba(139,92,246,0.5); }

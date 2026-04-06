@@ -1,0 +1,61 @@
+# Gitignore for travel_app Monorepo
+
+# IDEs and OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.pem
+
+# Python (Backend)
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/*.so
+**/.Python
+**/*.egg-info/
+**/dist/
+**/build/
+**/.eggs/
+**/.venv/
+**/venv/
+**/env/
+**/.pytest_cache/
+**/.coverage
+**/htmlcov/
+**/celerybeat-schedule
+**/celerybeat.pid
+**/alembic/versions/*.pyc
+
+# Node.js (Frontend)
+**/node_modules/
+**/.pnp
+**/.pnp.js
+**/.yarn/install-state.gz
+**/.next/
+**/out/
+**/next-env.d.ts
+**/*.tsbuildinfo
+
+# Debug logs
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# Environment files - NEVER COMMIT THESE
+.env
+.env.local
+.env.*.local
+*.env
+**/.env
+**/.env.*
+
+# User uploads
+**/uploads/
+
+# Local build artifacts
+**/coverage/
+# OSRM data (large binaries)
+**/infrastructure/osrm_data/
